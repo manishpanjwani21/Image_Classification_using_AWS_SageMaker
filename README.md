@@ -14,7 +14,7 @@ The project is designed to be dataset independent so if there is a dataset that 
 ### Access
 Upload the data to an S3 bucket through the AWS Gateway so that SageMaker has access to the data. 
 
-![img1](https://github.com/manishpanjwani21/Image_Classification_using_AWS_SageMaker/blob/main/snapshots/1.png)
+![img1](https://github.com/manishpanjwani21/Image_Classification_using_AWS_SageMaker/blob/master/snapshots/1.png)
 
 ## Overview of Project Steps
 
@@ -47,20 +47,20 @@ The jupyter notebook "train_and_deploy.ipynb" walks through implementation of Im
   - Batch size -- selected only two values [ 64, 128 ]
 
 ### HyperParameter Tuning Job
-![img2](https://github.com/manishpanjwani21/Image_Classification_using_AWS_SageMaker/blob/main/snapshots/2.png)
+![img2](https://github.com/manishpanjwani21/Image_Classification_using_AWS_SageMaker/blob/master/snapshots/2.png)
 
 ### Multiple training jobs triggered by the HyperParameter Tuning Job
-![img3](https://github.com/manishpanjwani21/Image_Classification_using_AWS_SageMaker/blob/main/snapshots/3.png)
+![img3](https://github.com/manishpanjwani21/Image_Classification_using_AWS_SageMaker/blob/master/snapshots/3.png)
 
 ### Best hyperparameter Training Job
-![img4](https://github.com/manishpanjwani21/Image_Classification_using_AWS_SageMaker/blob/main/snapshots/4.png)
+![img4](https://github.com/manishpanjwani21/Image_Classification_using_AWS_SageMaker/blob/master/snapshots/4.png)
 
 ### Best hyperparameter Training Job Logs
-![img5](https://github.com/manishpanjwani21/Image_Classification_using_AWS_SageMaker/blob/main/snapshots/5.png)
+![img5](https://github.com/manishpanjwani21/Image_Classification_using_AWS_SageMaker/blob/master/snapshots/5.png)
 
 ## Debugging and Profiling
 We had set the Debugger hook to record and keep track of the Loss Criterion metrics of the process in training and validation/testing phases. The Plot of the Cross entropy loss is shown below:
-![img6](https://github.com/manishpanjwani21/Image_Classification_using_AWS_SageMaker/blob/main/snapshots/7.png)
+![img6](https://github.com/manishpanjwani21/Image_Classification_using_AWS_SageMaker/blob/master/snapshots/7.png)
 
 There is anomalous behaviour of not getting smooth output lines.
 
@@ -69,7 +69,7 @@ There is anomalous behaviour of not getting smooth output lines.
   - If I had more AWS credits, then would have changed the fc layers used in the model. Firstly would try by adding in one more fc layer on top of the existing two layers and check the results, and then if the results didn't improve much then would try by removing all the fc layers and keeping only one fc layer in the model and then rerun the tuning and training jobs and check the outputs
 
 ## Endpoint Metrics
-![img7](https://github.com/manishpanjwani21/Image_Classification_using_AWS_SageMaker/blob/main/snapshots/8.png)
+![img7](https://github.com/manishpanjwani21/Image_Classification_using_AWS_SageMaker/blob/master/snapshots/8.png)
 
 ### Results
 Results look pretty good, as we had utilized the GPU while hyperparameter tuning and training of the fine-tuned ResNet50 model. We used the ml.g4dn.xlarge instance type for the runing the traiing purposes. However while deploying the model to an endpoint we used the "ml.t2.medium" instance type to save cost and resources.
@@ -83,7 +83,7 @@ Results look pretty good, as we had utilized the GPU while hyperparameter tuning
   - Secondly using the boto3 client
 
 ## Deployed Active Endpoint Snapshot
-![img8](https://github.com/manishpanjwani21/Image_Classification_using_AWS_SageMaker/blob/main/snapshots/9.png)
+![img8](https://github.com/manishpanjwani21/Image_Classification_using_AWS_SageMaker/blob/master/snapshots/9.png)
 
 ## Sample output returned from endpoint Snapshot
-![img9](https://github.com/manishpanjwani21/Image_Classification_using_AWS_SageMaker/blob/main/snapshots/10.png)
+![img9](https://github.com/manishpanjwani21/Image_Classification_using_AWS_SageMaker/blob/master/snapshots/10.png)
